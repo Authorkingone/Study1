@@ -7,3 +7,6 @@ my name iszhangsan,age is 18
 my name iszhangsan,age is 18
 bool(1)=True
 bool(0)=False
+my name iszhangsan,age is 18
+my name iszhangsan,age is 18
+my name iszhangsan,age is 18
