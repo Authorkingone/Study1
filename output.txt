@@ -10,3 +10,6 @@ bool(0)=False
 my name iszhangsan,age is 18
 my name iszhangsan,age is 18
 my name iszhangsan,age is 18
+张三
+李四
+王五
