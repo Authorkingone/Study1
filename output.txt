@@ -13,3 +13,103 @@ my name iszhangsan,age is 18
 张三
 李四
 王五
+
+
+class Home():
+    def __init__(self, size, height, value):
+        self.size = size
+        self.height = height
+        self.value = value
+
+home1 = Home(100,3,300)
+def home_type():
+    print("这是一个豪宅")
+home1.fun = home_type
+home1.fun()
+home1.kk = "kk"
+print(home1.kk)
+
+
+class Person():
+    def __init__(self, name, age, height):
+        self._name = name # 受保护的，只能本类和子类访问
+        self.__age = age # 私有的，类外不能访问，只能在类的内部访问
+        self.height = height # 公有的，类内类外都能访问
+person5 = Person("米线",18,175)
+print(person5._name) # 受保护的属性可以访问
+#print(person5.__age) # 私有属性不能访问
+print(person5.height) # 公有属性可以访问
+person5.fun = home_type
+
+# 继承
+class basketballer(Person):
+    def __init__(self, name, age, height,):
+        super().__init__(name, age, height) # 调用父类的构造函数
+        print(f"my name is {self._name}, age is {self._Person__age}, height is {self.height}") # 访问父类的受保护属性和私有属性
+people1 = basketballer("科比",40,198)
+people1.fun = home_type
+people1.fun()
+
+#多继承
+class A():
+    def funA(self):
+        print("A")
+class B():
+    def funB(self):
+        print("B")
+class C(A,B):
+    def funC(self):
+        print("C")
+c1 = C()
+c1.funA()
+c1.funB()
+c1.funC()
+#重写
+class D():
+    def fun1(self):
+        print("D")
+class E(D):
+    pass
+    def fun1(self):# 重写父类的方法
+        print("E")
+e1 = E()
+e1.fun1() # 调用子类的方法
+
+#多态
+class animal():
+    def eat(self):
+        print("动物在吃饭")
+class Dog(animal):
+    def eat(self):
+        print("狗在吃骨头")
+class Cat(animal):
+    def eat(self):
+        print("猫在吃鱼")
+dog = Dog()
+cat = Cat()
+
+def Eat(animal): #定义一个函数，参数是animal
+    animal.eat()
+Eat(dog)
+Eat(cat)
+
+#魔法函数
+class List_1:
+    def __init__(self,list):
+        self.list = list
+    def __getitem__(self,index): # 重载索引操作
+        return self.list[index]
+    def __len__(self): # 重载len()函数
+        return len(self.list)
+    def __delitem__(self,index): # 重载del操作
+        del self.list[index]
+    def __setitem__(self,index,value): # 重载赋值操作
+        self.list[index] = value
+    def __len__(self): # 重载len()函数
+        return len(self.list)
+my_list = [1,2,3,4,5]
+wrapper = List_1(my_list)
+print(wrapper.__getitem__(2)) # 通过魔法函数访问索引
+print(wrapper.__len__()) # 通过魔法函数访问长度
+wrapper.__delitem__(1) # 通过魔法函数删除索引
+print(wrapper.list)
