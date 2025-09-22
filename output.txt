@@ -113,3 +113,4 @@ print(wrapper.__getitem__(2)) # 通过魔法函数访问索引
 print(wrapper.__len__()) # 通过魔法函数访问长度
 wrapper.__delitem__(1) # 通过魔法函数删除索引
 print(wrapper.list)
+1122e
